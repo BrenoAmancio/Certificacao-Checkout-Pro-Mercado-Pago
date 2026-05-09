@@ -100,7 +100,8 @@ app.post("/create-preference", (req, res) => {
                     pending: "https://certificacao-checkout-pro-mercado-pago.onrender.com/feedback-pending"
                 },
                 auto_return: "approved"
-            }, {
+            }, 
+            requestOptions:{
                 integratorId: process.env.INTEGRATOR_ID
             }
         })
