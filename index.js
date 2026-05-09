@@ -20,8 +20,29 @@ app.get('/', (req, res) => {
 res.sendFile(path.join(__dirname + '/index.html'))
 });
 
-app.get('/feedback', (req, res) => {
+app.get('/feedback-pending', (req, res) => {
     res.json({
+        status: "pending",
+        payment_id: req.query.payment_id,
+        status: req.query.status,
+        external_reference: req.query.external_reference,
+        merchant_order_id: req.query.merchant_order_id
+    })
+})
+
+app.get('/feedback-failure', (req, res) => {
+    res.json({
+        status: "failure",
+        payment_id: req.query.payment_id,
+        status: req.query.status,
+        external_reference: req.query.external_reference,
+        merchant_order_id: req.query.merchant_order_id
+    })
+})
+
+app.get('/feedback-success', (req, res) => {
+    res.json({
+        status: "success",
         payment_id: req.query.payment_id,
         status: req.query.status,
         external_reference: req.query.external_reference,
