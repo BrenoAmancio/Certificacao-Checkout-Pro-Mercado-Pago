@@ -77,9 +77,9 @@ app.post("/create-preference", (req, res) => {
                 },
                 notification_url: "https://certificacao-checkout-pro-mercado-pago.onrender.com/feedback",
                 back_urls: {
-                    success: "https://certificacao-checkout-pro-mercado-pago.onrender.com/feedback",
-                    failure: "https://certificacao-checkout-pro-mercado-pago.onrender.com/feedback",
-                    pending: "https://certificacao-checkout-pro-mercado-pago.onrender.com/feedback"
+                    success: "https://certificacao-checkout-pro-mercado-pago.onrender.com/feedback-success",
+                    failure: "https://certificacao-checkout-pro-mercado-pago.onrender.com/feedback-failure",
+                    pending: "https://certificacao-checkout-pro-mercado-pago.onrender.com/feedback-pending"
                 },
                 auto_return: "approved"
             }
