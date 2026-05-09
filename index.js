@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 
 const client = new MercadoPagoConfig({
     accessToken: process.env.ACCESS_TOKEN,
-    integratorId: "dev_24c65fb163bf11ea96500242ac130004"
+    integratorId: process.env.INTEGRATOR_ID
 });
 
 app.use(express.json());
@@ -26,7 +26,9 @@ app.get('/feedback-pending', (req, res) => {
         payment_id: req.query.payment_id,
         status: req.query.status,
         external_reference: req.query.external_reference,
-        merchant_order_id: req.query.merchant_order_id
+        merchant_order_id: req.query.merchant_order_id,
+        integratorId: client.integratorId,
+        intId: process.env.INTEGRATOR_ID
     })
 })
 
@@ -36,7 +38,9 @@ app.get('/feedback-failure', (req, res) => {
         payment_id: req.query.payment_id,
         status: req.query.status,
         external_reference: req.query.external_reference,
-        merchant_order_id: req.query.merchant_order_id
+        merchant_order_id: req.query.merchant_order_id,
+        integratorId: client.integratorId,
+        intId: process.env.INTEGRATOR_ID
     })
 })
 
@@ -47,7 +51,8 @@ app.get('/feedback-success', (req, res) => {
         status: req.query.status,
         external_reference: req.query.external_reference,
         merchant_order_id: req.query.merchant_order_id,
-        integratorId: client.integratorId
+        integratorId: client.integratorId,
+        intId: process.env.INTEGRATOR_ID
     })
 })
 
@@ -57,7 +62,9 @@ app.post('/feedback', (req, res) => {
         payment_id: req.query.payment_id,
         status: req.query.status,
         external_reference: req.query.external_reference,
-        merchant_order_id: req.query.merchant_order_id
+        merchant_order_id: req.query.merchant_order_id,
+        integratorId: client.integratorId,
+        intId: process.env.INTEGRATOR_ID
     })
 })
 
