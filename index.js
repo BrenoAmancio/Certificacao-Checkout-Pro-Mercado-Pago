@@ -8,7 +8,6 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const client = new MercadoPagoConfig({
-    sandbox: true,
     accessToken: process.env.ACCESS_TOKEN,
     integratorId: "dev_24c65fb163bf11ea96500242ac130004"
 });
@@ -47,7 +46,8 @@ app.get('/feedback-success', (req, res) => {
         payment_id: req.query.payment_id,
         status: req.query.status,
         external_reference: req.query.external_reference,
-        merchant_order_id: req.query.merchant_order_id
+        merchant_order_id: req.query.merchant_order_id,
+        integratorId: client.integratorId
     })
 })
 
