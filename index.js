@@ -2,6 +2,7 @@ import { MercadoPagoConfig, Preference } from "mercadopago";
 import express from "express";
 import path from "path";
 import dotenv from "dotenv/config";
+import { stat } from "fs";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -43,6 +44,16 @@ app.get('/feedback-failure', (req, res) => {
 app.get('/feedback-success', (req, res) => {
     res.json({
         status: "success",
+        payment_id: req.query.payment_id,
+        status: req.query.status,
+        external_reference: req.query.external_reference,
+        merchant_order_id: req.query.merchant_order_id
+    })
+})
+
+app.post('/feedback', (req, res) => {
+    res.json({
+        status: "notification",
         payment_id: req.query.payment_id,
         status: req.query.status,
         external_reference: req.query.external_reference,
