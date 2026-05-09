@@ -7,6 +7,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const client = new MercadoPagoConfig({
+    sandbox: true,
     accessToken: process.env.ACCESS_TOKEN,
     integratorId: "dev_24c65fb163bf11ea96500242ac130004"
 });
