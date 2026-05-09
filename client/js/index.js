@@ -21,7 +21,7 @@ const mercadopago = new MercadoPago('APP_USR-615d9b41-d20b-486d-83c2-aa826f50cb5
   
 document.addEventListener("DOMContentLoaded", async ()=> {
   
-  await fetch("http://localhost:3000/create-preference", {
+  await fetch("https://certificacao-checkout-pro-mercado-pago.onrender.com/create-preference", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

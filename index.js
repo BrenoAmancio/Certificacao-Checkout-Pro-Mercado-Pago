@@ -53,11 +53,11 @@ app.post("/create-preference", (req, res) => {
                     ],
                     installments: 6
                 },
-                notification_url: "https://localhost:3000/feedback",
+                notification_url: "https://certificacao-checkout-pro-mercado-pago.onrender.com/feedback",
                 back_urls: {
-                    success: "https://localhost:3000/feedback",
-                    failure: "https://localhost:3000/feedback",
-                    pending: "https://localhost:3000/feedback"
+                    success: "https://certificacao-checkout-pro-mercado-pago.onrender.com/feedback",
+                    failure: "https://certificacao-checkout-pro-mercado-pago.onrender.com/feedback",
+                    pending: "https://certificacao-checkout-pro-mercado-pago.onrender.com/feedback"
                 },
                 auto_return: "approved"
             }
