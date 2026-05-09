@@ -72,6 +72,7 @@ app.post("/create-preference", (req, res) => {
     const preference = new Preference(client);
 
     preference.create({
+            integrator_id: process.env.INTEGRATOR_ID,
             body: {
                 external_reference: "brenoaaffonso@gmail.com",
                 items: [
